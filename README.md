@@ -52,3 +52,36 @@ This is a baseline model. You can improve it by:
 - Balancing the dataset using SMOTE or class weights
 - Trying ensemble models (e.g., Random Forest)
 - Incorporating additional content features (overview, cast, crew, tags)
+
+## 2. Gold Price Predictor  
+
+### Overview  
+A deep learning model that predicts gold prices using historical data with a Convolutional Neural Network (CNN).  
+
+### Features  
+- Data preprocessing & normalization  
+- CNN architecture with Conv1D layers  
+- Early stopping during training  
+- Evaluation metrics (MAE, RMSE)  
+- 30-day future price forecasting  
+
+### Requirements  
+- Python 3.x  
+- TensorFlow  
+- scikit-learn  
+- pandas, numpy, matplotlib  
+- kagglehub  
+
+### Usage  
+1. Load and preprocess historical gold price data  
+2. Split into training/test sets  
+3. Train CNN model  
+4. Evaluate performance  
+5. Generate future predictions  
+
+### Results  
+- Price prediction vs actual visualization  
+- Training/validation loss curves  
+- 30-day forecast with dates  
+
+Dataset: [Kaggle Gold Price Prediction Dataset](https://www.kaggle.com/datasets/sid321axn/gold-price-prediction-dataset)  
