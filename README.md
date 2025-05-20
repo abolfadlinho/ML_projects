@@ -86,7 +86,7 @@ A deep learning model that predicts gold prices using historical data with a Con
 
 Dataset: [Kaggle Gold Price Prediction Dataset](https://www.kaggle.com/datasets/sid321axn/gold-price-prediction-dataset) 
 
-## 3.📧 Spam Email Detector with TPOT AutoML
+## 3. 📧 Spam Email Detector with TPOT AutoML
 
 This project uses **TPOT**, an AutoML library built on top of scikit-learn, to automatically generate a high-performing machine learning pipeline for detecting spam emails. The dataset used is the publicly available **SMS Spam Collection**, which includes labeled SMS messages categorized as *spam* or *ham* (non-spam).
 
@@ -114,4 +114,45 @@ After training, the notebook evaluates the model on a test set and exports the b
 ### 🔗 Source Notebook
 
 This project was developed in Google Colab. You can access the original notebook [here](https://colab.research.google.com/drive/17rCjbC-6Vdaxt2fJ06Pqy2-QbEdaqBzy).
+
+## 4. 🎬 SVD Recommender System with Surprise
+
+This project implements a movie recommendation system using **Singular Value Decomposition (SVD)** from the `scikit-surprise` library. It leverages the **MovieLens dataset**, sourced directly from Kaggle, and predicts user preferences for movies based on their historical ratings.
+
+### 🛠 Features
+
+- Matrix Factorization using SVD from `scikit-surprise`
+- Download of dataset via `kagglehub`
+- Data loading and preprocessing with `pandas`
+- Cross-validation with RMSE and MAE scoring
+- Full training of the model and prediction for specific user-movie pairs
+
+### 📂 Dataset
+
+The project uses the **MovieLens dataset**, which contains metadata about movies and user ratings. The following CSV files are used:
+
+- `movies_metadata.csv`
+- `ratings_small.csv`
+- `links.csv`
+
+These are automatically downloaded from Kaggle using the `kagglehub` package.
+
+### 📌 Requirements
+
+To ensure compatibility, specific versions are installed:
+
+- `numpy==1.23.5` (required for `scikit-surprise`)
+- `scikit-surprise` installed from source (`--no-binary`)
+- `kagglehub` for easy dataset access
+
+This setup is tested and intended for use in **Google Colab**.
+
+### 📈 Output
+
+The notebook performs 5-fold cross-validation and reports **RMSE** and **MAE** for the SVD model. It then trains the model on the full dataset and predicts a rating for a specific user and movie.
+
+### 🔗 Source Notebook
+
+This project was developed in Google Colab. You can access the original notebook [here](https://colab.research.google.com/drive/15d37aY0uHoG_GW5w-iLcALb4OetOzf5g).
+
 
