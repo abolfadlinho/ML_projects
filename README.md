@@ -255,7 +255,7 @@ This project applies a Long Short-Term Memory (LSTM) neural network to classify 
 ### 1. Data Cleaning and Preprocessing
 Tweets are cleaned by removing usernames, links, hashtags, punctuations, and converting text to lowercase.
 
-"""
+```python
 import re
 
 def clean_text(text):
@@ -265,12 +265,12 @@ def clean_text(text):
     text = re.sub(r'https?:\/\/\S+','', text) # remove links
     text = re.sub(r'[^a-zA-Z\s]', '', text)   # remove punctuations
     return text.lower()
-"""
+```
 
 ### 2. Tokenization and Padding
 Text is tokenized and padded to equal lengths using Keras utilities.
 
-"""
+```python
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 
@@ -278,12 +278,12 @@ tokenizer = Tokenizer(num_words=5000, oov_token="<OOV>")
 tokenizer.fit_on_texts(cleaned_texts)
 sequences = tokenizer.texts_to_sequences(cleaned_texts)
 padded = pad_sequences(sequences, maxlen=100, truncating='post')
-"""
+```python
 
 ### 3. LSTM Model Architecture
 A deep learning model using an Embedding layer, LSTM, and Dense layers is built and compiled.
 
-"""
+```python
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Embedding, LSTM, Dense
 
@@ -294,14 +294,14 @@ model = Sequential([
 ])
 
 model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-"""
+```
 
 ### 4. Training and Evaluation
 Model is trained on the preprocessed tweet data and evaluated using accuracy and loss metrics.
 
-"""
+```python
 model.fit(X_train, y_train, epochs=5, validation_data=(X_val, y_val), batch_size=64)
-"""
+```
 
 ## 📦 Dependencies
 
@@ -316,9 +316,9 @@ model.fit(X_train, y_train, epochs=5, validation_data=(X_val, y_val), batch_size
 
 Install required packages:
 
-"""
+```python
 pip install pandas numpy matplotlib seaborn scikit-learn tensorflow
-"""
+```
 
 ## 📌 Usage
 
