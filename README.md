@@ -242,3 +242,101 @@ Open the notebook in Jupyter or VS Code, and run all cells from top to bottom. E
 
 This project is open-source and available for educational and non-commercial use.
 
+# 6. 💬 Twitter Sentiment Analysis using LSTM
+
+This project applies a Long Short-Term Memory (LSTM) neural network to classify sentiments in tweets. It is designed to handle binary or multiclass sentiment classification using a dataset of tweets.
+
+## 📁 File Overview
+
+- **TwitterSentimentAnalysisLSTM.ipynb**: Jupyter notebook implementing preprocessing, tokenization, padding, LSTM-based modeling, training, and evaluation on a tweet sentiment dataset.
+
+## 📊 Key Features
+
+### 1. Data Cleaning and Preprocessing
+Tweets are cleaned by removing usernames, links, hashtags, punctuations, and converting text to lowercase.
+
+"""
+import re
+
+def clean_text(text):
+    text = re.sub(r'@[A-Za-z0-9_]+','', text) # remove mentions
+    text = re.sub(r'#','', text)              # remove hashtag symbol
+    text = re.sub(r'RT[\s]+','', text)        # remove retweet tag
+    text = re.sub(r'https?:\/\/\S+','', text) # remove links
+    text = re.sub(r'[^a-zA-Z\s]', '', text)   # remove punctuations
+    return text.lower()
+"""
+
+### 2. Tokenization and Padding
+Text is tokenized and padded to equal lengths using Keras utilities.
+
+"""
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+
+tokenizer = Tokenizer(num_words=5000, oov_token="<OOV>")
+tokenizer.fit_on_texts(cleaned_texts)
+sequences = tokenizer.texts_to_sequences(cleaned_texts)
+padded = pad_sequences(sequences, maxlen=100, truncating='post')
+"""
+
+### 3. LSTM Model Architecture
+A deep learning model using an Embedding layer, LSTM, and Dense layers is built and compiled.
+
+"""
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Embedding, LSTM, Dense
+
+model = Sequential([
+    Embedding(input_dim=5000, output_dim=64, input_length=100),
+    LSTM(64, dropout=0.2, recurrent_dropout=0.2),
+    Dense(1, activation='sigmoid')
+])
+
+model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
+"""
+
+### 4. Training and Evaluation
+Model is trained on the preprocessed tweet data and evaluated using accuracy and loss metrics.
+
+"""
+model.fit(X_train, y_train, epochs=5, validation_data=(X_val, y_val), batch_size=64)
+"""
+
+## 📦 Dependencies
+
+- Python 3.7+
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- scikit-learn
+- TensorFlow / Keras
+- re (regex)
+
+Install required packages:
+
+"""
+pip install pandas numpy matplotlib seaborn scikit-learn tensorflow
+"""
+
+## 📌 Usage
+
+1. Open `TwitterSentimentAnalysisLSTM.ipynb` in Jupyter Notebook.
+2. Run the notebook step-by-step.
+3. Adjust tokenizer vocab size or LSTM parameters for different performance or datasets.
+
+## 📈 Results
+
+- Includes visualizations of training/validation accuracy and loss.
+- Capable of binary sentiment classification (positive vs. negative).
+- Accuracy  : 0.9231
+- Precision : 0.9273
+- Recall    : 0.9198
+- F1 Score  : 0.9235
+
+## 📝 License
+
+This project is open for educational and non-commercial use.
+
+
