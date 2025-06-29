@@ -155,7 +155,7 @@ The notebook performs 5-fold cross-validation and reports **RMSE** and **MAE** f
 
 This project was developed in Google Colab. You can access the original notebook [here](https://colab.research.google.com/drive/15d37aY0uHoG_GW5w-iLcALb4OetOzf5g).
 
-# 1.💳 Credit Card Fraud Detection
+# 5. 💳 Credit Card Fraud Detection
 
 This notebook presents an enhanced version of a credit card fraud detection pipeline. It builds on an earlier implementation by incorporating better preprocessing, modeling, and evaluation practices—automatically suggested and implemented using Gemini.
 
