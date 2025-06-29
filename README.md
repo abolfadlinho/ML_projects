@@ -155,4 +155,90 @@ The notebook performs 5-fold cross-validation and reports **RMSE** and **MAE** f
 
 This project was developed in Google Colab. You can access the original notebook [here](https://colab.research.google.com/drive/15d37aY0uHoG_GW5w-iLcALb4OetOzf5g).
 
+# 1.💳 Credit Card Fraud Detection
+
+This notebook presents an enhanced version of a credit card fraud detection pipeline. It builds on an earlier implementation by incorporating better preprocessing, modeling, and evaluation practices—automatically suggested and implemented using Gemini.
+
+## 📁 File Overview
+
+- **CreditFraudDetection_EnhancedOnly.ipynb**: Contains only the final enhanced task section from the original notebook. This section features:
+  - Data preprocessing
+  - Model training using multiple classifiers
+  - Evaluation metrics
+  - ROC/AUC analysis
+  - Improved visualization and explanation
+
+## 🚀 Main Features
+
+### ✅ Data Preprocessing
+The pipeline performs essential preprocessing steps:
+- Handling class imbalance using undersampling
+- Splitting data into train/test sets
+- Feature scaling
+
+```python
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+X_test_scaled = scaler.transform(X_test)
+```
+
+### 🧠 Models Used
+Multiple machine learning models are trained and compared:
+- Logistic Regression
+- Random Forest Classifier
+- XGBoost Classifier
+
+```python
+from sklearn.ensemble import RandomForestClassifier
+from xgboost import XGBClassifier
+
+models = {
+    'Random Forest': RandomForestClassifier(n_estimators=100),
+    'XGBoost': XGBClassifier(use_label_encoder=False, eval_metric='logloss')
+}
+```
+
+### 📊 Evaluation Metrics
+The notebook provides comprehensive evaluation:
+- Confusion Matrix
+- Classification Report
+- ROC Curve and AUC Score
+
+```python
+from sklearn.metrics import classification_report, roc_auc_score
+
+print(classification_report(y_test, y_pred))
+roc_auc_score(y_test, model.predict_proba(X_test)[:, 1])
+```
+
+### 📈 Visualizations
+Includes enhanced visualizations for performance and data distribution analysis.
+
+## ⚙️ Requirements
+
+- Python 3.7+
+- pandas
+- numpy
+- scikit-learn
+- xgboost
+- matplotlib
+- seaborn
+
+Install them using:
+
+```bash
+pip install pandas numpy scikit-learn xgboost matplotlib seaborn
+```
+
+## 📌 Usage
+
+Open the notebook in Jupyter or VS Code, and run all cells from top to bottom. Each model’s performance will be displayed in a structured and visualized manner.
+
+## 📝 License
+
+This project is open-source and available for educational and non-commercial use.
 
