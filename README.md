@@ -278,7 +278,7 @@ tokenizer = Tokenizer(num_words=5000, oov_token="<OOV>")
 tokenizer.fit_on_texts(cleaned_texts)
 sequences = tokenizer.texts_to_sequences(cleaned_texts)
 padded = pad_sequences(sequences, maxlen=100, truncating='post')
-```python
+```
 
 ### 3. LSTM Model Architecture
 A deep learning model using an Embedding layer, LSTM, and Dense layers is built and compiled.
