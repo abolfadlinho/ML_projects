@@ -1,10 +1,8 @@
 # ML_projects: Comprehensive Machine Learning Repository
 
-Welcome to ML_projects, a curated collection of machine learning and deep learning projects spanning classification, clustering, regression, reinforcement learning, time-series forecasting, NLP, and more. This repository is designed for learners, practitioners, and researchers seeking hands-on examples, best practices, and reproducible workflows across the ML spectrum.
+Welcome to ML_projects, my curated collection of machine learning and deep learning projects spanning classification, clustering, regression, reinforcement learning, time-series forecasting, NLP, and more. This repository is designed for learners, practitioners, and researchers seeking hands-on examples, best practices, and reproducible workflows across the ML spectrum.
 
----
-
-**Author Kaggle Profile:** [Ahmed Amr Abolfadl on Kaggle](https://www.kaggle.com/ahmedamrabolfadl)
+**My Kaggle Profile:** [Ahmed Abolfadl on Kaggle](https://www.kaggle.com/ahmedamrabolfadl)
 
 ---
 
@@ -109,18 +107,6 @@ Welcome to ML_projects, a curated collection of machine learning and deep learni
 
 ---
 
-## Contributing
-
-Contributions are welcome! Feel free to submit issues, pull requests, or suggestions to improve workflows, add new projects, or enhance documentation.
-
----
-
 ## License
 
 This repository is open-source and available under the MIT License.
-
----
-
-## Contact
-
-For questions, feedback, or collaboration, please reach out via GitHub Issues or Discussions.
