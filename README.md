@@ -1,342 +1,122 @@
-# ML_projects
+# ML_projects: Comprehensive Machine Learning Repository
 
-## 1. 🎬 Movie Recommender using Decision Tree and Optuna
+Welcome to ML_projects, a curated collection of machine learning and deep learning projects spanning classification, clustering, regression, reinforcement learning, time-series forecasting, NLP, and more. This repository is designed for learners, practitioners, and researchers seeking hands-on examples, best practices, and reproducible workflows across the ML spectrum.
 
-This project builds a movie recommender system using the [Movies Dataset](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset) from Kaggle. It trains a Decision Tree Classifier to predict whether a user would "like" a movie based on its popularity and genres.
+---
 
-### 📌 Features
+## Repository Structure
 
-- Binary classification: `like = 1 if vote_average ≥ 7, else 0`
-- One-hot encoding for genres
-- Uses `popularity` and `genres` as features
-- Hyperparameter tuning with **Optuna**
-- Model evaluation using accuracy, precision, recall, and F1-score
-- Top movie recommendations based on predicted "likes"
-- Visualizes optimized decision tree
+- **Classification/**
+  - EyeDiseases: Deep learning for eye disease image classification (EfficientNetB3).
+  - PlantVillageDisease: Plant disease detection using transfer learning.
+  - README.md: Concepts, algorithms, and workflow for classification tasks.
+- **Clustering/**
+  - CustomersSegmentation: Mall customer segmentation with KMeans and EDA.
+  - IrisClustering: Automated clustering optimization with Optuna (KMeans, DBSCAN, GMM).
+  - README.md: Clustering theory, algorithms, and evaluation.
+- **Deep-Learning/**
+  - MathSymbolsCNN: CNN for mathematical symbol image classification.
+  - README.md: Deep learning architectures, concepts, and applications.
+- **NLP/**
+  - TwitterSentimentAnalysis: Sentiment classification on Twitter data (spaCy, scikit-learn).
+  - README.md: NLP concepts, workflows, and libraries.
+- **Regression/**
+  - BankTermDepositPrediction: Predicting bank term deposit subscriptions with multiple ML models.
+  - README.md: Regression theory, algorithms, and metrics.
+- **Reinforcement-Learning/**
+  - README.md: RL concepts, algorithms, and applications.
+- **Time-Series/**
+  - TeslaStockForecasting: LSTM-based forecasting of Tesla stock prices.
+  - README.md: Time-series forecasting concepts and methods.
 
-### 📁 Dataset
+---
 
-Downloaded via `kagglehub`:
-- File used: `movies_metadata.csv`
+## Project Highlights
 
-### 📦 Dependencies
+### Classification
 
-pip install optuna kagglehub
+- **EyeDiseases**: EfficientNetB3-based image classification, stratified data splits, custom callbacks, and reproducible results.
+- **PlantVillageDisease**: Transfer learning for plant disease detection, advanced augmentation, and model evaluation.
 
-### 🧠 Model Training
+### Clustering
 
-- Train-test split on preprocessed features
-- Custom evaluation metric prioritizes class 1 (likes)
-- Decision Tree optimized with Optuna for best generalization
+- **CustomersSegmentation**: Univariate, bivariate, and multivariate clustering with KMeans, EDA, and cluster analysis.
+- **IrisClustering**: Optuna-powered search for best clustering algorithm and parameters, maximizing silhouette score.
 
-### 📊 Evaluation Sample
+### Deep Learning
 
-Accuracy: 0.73
+- **MathSymbolsCNN**: Custom CNN for symbol recognition, with full training, evaluation, and result saving.
 
-Classification Report:
-              precision    recall  f1-score   support
-           0       0.83       0.82      0.83      7168
-           1       0.36       0.38      0.37      1893
+### NLP
 
-### 🎯 Movie Recommendations
+- **TwitterSentimentAnalysis**: End-to-end sentiment analysis pipeline, including preprocessing, feature extraction, and model comparison.
 
-Predicts which movies are likely to be liked (`predicted_like = 1`) and recommends the top 20 based on vote average and popularity.
+### Regression
 
-### 🌳 Decision Tree Visualization
+- **BankTermDepositPrediction**: Multi-model approach (Logistic Regression, SVC, KNN, Decision Tree, Random Forest, XGBoost, CatBoost, LightGBM), feature engineering, and robust evaluation.
 
-Plots a limited-depth decision tree to interpret model behavior and dominant features.
+### Time-Series
 
-### 📌 Notes
+- **TeslaStockForecasting**: LSTM neural network for stock price prediction, sequence generation, and future forecasting.
 
-This is a baseline model. You can improve it by:
-- Balancing the dataset using SMOTE or class weights
-- Trying ensemble models (e.g., Random Forest)
-- Incorporating additional content features (overview, cast, crew, tags)
+---
 
-## 2. Gold Price Predictor  
+## How to Use This Repository
 
-### Overview  
-A deep learning model that predicts gold prices using historical data with a Convolutional Neural Network (CNN).  
+1. **Explore Subdomains**: Each subfolder contains a README.md with domain-specific theory, workflow, and references.
+2. **Run Notebooks**: Follow the step-by-step Jupyter notebooks for hands-on experimentation.
+3. **Install Dependencies**: Use the provided requirements in each project README or run:
+   ```powershell
+   pip install pandas numpy scikit-learn seaborn matplotlib tensorflow keras xgboost catboost lightgbm spacy
+   python -m spacy download en_core_web_sm
+   ```
+4. **Reproduce Results**: All projects include code for data loading, preprocessing, model training, evaluation, and saving outputs.
+5. **Learn & Extend**: Use the workflows as templates for your own ML projects or research.
 
-### Features  
-- Data preprocessing & normalization  
-- CNN architecture with Conv1D layers  
-- Early stopping during training  
-- Evaluation metrics (MAE, RMSE)  
-- 30-day future price forecasting  
+---
 
-### Requirements  
-- Python 3.x  
-- TensorFlow  
-- scikit-learn  
-- pandas, numpy, matplotlib  
-- kagglehub  
+## Technologies & Libraries
 
-### Usage  
-1. Load and preprocess historical gold price data  
-2. Split into training/test sets  
-3. Train CNN model  
-4. Evaluate performance  
-5. Generate future predictions  
+- **Python**: Core language for all projects.
+- **pandas, numpy, scikit-learn**: Data manipulation and classical ML.
+- **seaborn, matplotlib**: Data visualization.
+- **tensorflow, keras, EfficientNet, LSTM**: Deep learning and neural networks.
+- **xgboost, catboost, lightgbm**: Gradient boosting for tabular data.
+- **spaCy, NLTK, Hugging Face Transformers**: NLP and text processing.
+- **Optuna**: Hyperparameter optimization.
+- **Stable Baselines3, RLlib**: Reinforcement learning (see RL README).
 
-### Results  
-- Price prediction vs actual visualization  
-- Training/validation loss curves  
-- 30-day forecast with dates  
+---
 
-Dataset: [Kaggle Gold Price Prediction Dataset](https://www.kaggle.com/datasets/sid321axn/gold-price-prediction-dataset) 
+## Best Practices & Reproducibility
 
-## 3. 📧 Spam Email Detector with TPOT AutoML
+- **Stratified Data Splits**: Ensures balanced training, validation, and test sets.
+- **Data Augmentation**: Improves generalization for image tasks.
+- **Custom Callbacks**: Early stopping, learning rate scheduling, and user interaction.
+- **Comprehensive Evaluation**: Confusion matrices, classification reports, cluster analysis, and forecasting metrics.
+- **Result Saving**: Models, weights, and key outputs are saved for reproducibility.
 
-This project uses **TPOT**, an AutoML library built on top of scikit-learn, to automatically generate a high-performing machine learning pipeline for detecting spam emails. The dataset used is the publicly available **SMS Spam Collection**, which includes labeled SMS messages categorized as *spam* or *ham* (non-spam).
+---
 
-### 🛠 Features
+## References & Further Reading
 
-- Automated model selection and hyperparameter tuning with TPOT
-- TF-IDF vectorization of preprocessed message text
-- Stopword removal and basic text cleaning
-- Train-test split with stratification
-- Evaluation using accuracy and classification report
-- Export of the best performing pipeline to a standalone Python script
+- Each subdomain README.md includes links to foundational papers, datasets, and documentation.
+- Explore the notebooks for code examples, explanations, and practical tips.
 
-### 📂 Dataset
+---
 
-The project uses the SMS Spam Collection dataset, which contains thousands of SMS messages labeled for spam detection. Each message is tagged as either "spam" or "ham" and paired with its text content.
+## Contributing
 
-### 📌 Requirements
+Contributions are welcome! Feel free to submit issues, pull requests, or suggestions to improve workflows, add new projects, or enhance documentation.
 
-Compatible versions are used to avoid dependency conflicts, especially with numpy and scikit-learn. The project is tested in **Google Colab**, which ensures a reproducible environment.
+---
 
-### 📈 Output
+## License
 
-After training, the notebook evaluates the model on a test set and exports the best pipeline generated by TPOT. This pipeline can be reused or deployed in other Python applications for spam classification.
+This repository is open-source and available under the MIT License.
 
-### 🔗 Source Notebook
+---
 
-This project was developed in Google Colab. You can access the original notebook [here](https://colab.research.google.com/drive/17rCjbC-6Vdaxt2fJ06Pqy2-QbEdaqBzy).
+## Contact
 
-## 4. 🎬 SVD Recommender System with Surprise
-
-This project implements a movie recommendation system using **Singular Value Decomposition (SVD)** from the `scikit-surprise` library. It leverages the **MovieLens dataset**, sourced directly from Kaggle, and predicts user preferences for movies based on their historical ratings.
-
-### 🛠 Features
-
-- Matrix Factorization using SVD from `scikit-surprise`
-- Download of dataset via `kagglehub`
-- Data loading and preprocessing with `pandas`
-- Cross-validation with RMSE and MAE scoring
-- Full training of the model and prediction for specific user-movie pairs
-
-### 📂 Dataset
-
-The project uses the **MovieLens dataset**, which contains metadata about movies and user ratings. The following CSV files are used:
-
-- `movies_metadata.csv`
-- `ratings_small.csv`
-- `links.csv`
-
-These are automatically downloaded from Kaggle using the `kagglehub` package.
-
-### 📌 Requirements
-
-To ensure compatibility, specific versions are installed:
-
-- `numpy==1.23.5` (required for `scikit-surprise`)
-- `scikit-surprise` installed from source (`--no-binary`)
-- `kagglehub` for easy dataset access
-
-This setup is tested and intended for use in **Google Colab**.
-
-### 📈 Output
-
-The notebook performs 5-fold cross-validation and reports **RMSE** and **MAE** for the SVD model. It then trains the model on the full dataset and predicts a rating for a specific user and movie.
-
-### 🔗 Source Notebook
-
-This project was developed in Google Colab. You can access the original notebook [here](https://colab.research.google.com/drive/15d37aY0uHoG_GW5w-iLcALb4OetOzf5g).
-
-# 5. 💳 Credit Card Fraud Detection
-
-This notebook presents an enhanced version of a credit card fraud detection pipeline. It builds on an earlier implementation by incorporating better preprocessing, modeling, and evaluation practices—automatically suggested and implemented using Gemini.
-
-## 📁 File Overview
-
-- **CreditFraudDetection_EnhancedOnly.ipynb**: Contains only the final enhanced task section from the original notebook. This section features:
-  - Data preprocessing
-  - Model training using multiple classifiers
-  - Evaluation metrics
-  - ROC/AUC analysis
-  - Improved visualization and explanation
-
-## 🚀 Main Features
-
-### ✅ Data Preprocessing
-The pipeline performs essential preprocessing steps:
-- Handling class imbalance using undersampling
-- Splitting data into train/test sets
-- Feature scaling
-
-```python
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, stratify=y, random_state=42)
-scaler = StandardScaler()
-X_train_scaled = scaler.fit_transform(X_train)
-X_test_scaled = scaler.transform(X_test)
-```
-
-### 🧠 Models Used
-Multiple machine learning models are trained and compared:
-- Logistic Regression
-- Random Forest Classifier
-- XGBoost Classifier
-
-```python
-from sklearn.ensemble import RandomForestClassifier
-from xgboost import XGBClassifier
-
-models = {
-    'Random Forest': RandomForestClassifier(n_estimators=100),
-    'XGBoost': XGBClassifier(use_label_encoder=False, eval_metric='logloss')
-}
-```
-
-### 📊 Evaluation Metrics
-The notebook provides comprehensive evaluation:
-- Confusion Matrix
-- Classification Report
-- ROC Curve and AUC Score
-
-```python
-from sklearn.metrics import classification_report, roc_auc_score
-
-print(classification_report(y_test, y_pred))
-roc_auc_score(y_test, model.predict_proba(X_test)[:, 1])
-```
-
-### 📈 Visualizations
-Includes enhanced visualizations for performance and data distribution analysis.
-
-## ⚙️ Requirements
-
-- Python 3.7+
-- pandas
-- numpy
-- scikit-learn
-- xgboost
-- matplotlib
-- seaborn
-
-Install them using:
-
-```bash
-pip install pandas numpy scikit-learn xgboost matplotlib seaborn
-```
-
-## 📌 Usage
-
-Open the notebook in Jupyter or VS Code, and run all cells from top to bottom. Each model’s performance will be displayed in a structured and visualized manner.
-
-## 📝 License
-
-This project is open-source and available for educational and non-commercial use.
-
-# 6. 💬 Twitter Sentiment Analysis using LSTM
-
-This project applies a Long Short-Term Memory (LSTM) neural network to classify sentiments in tweets. It is designed to handle binary or multiclass sentiment classification using a dataset of tweets.
-
-## 📁 File Overview
-
-- **TwitterSentimentAnalysisLSTM.ipynb**: Jupyter notebook implementing preprocessing, tokenization, padding, LSTM-based modeling, training, and evaluation on a tweet sentiment dataset.
-
-## 📊 Key Features
-
-### 1. Data Cleaning and Preprocessing
-Tweets are cleaned by removing usernames, links, hashtags, punctuations, and converting text to lowercase.
-
-```python
-import re
-
-def clean_text(text):
-    text = re.sub(r'@[A-Za-z0-9_]+','', text) # remove mentions
-    text = re.sub(r'#','', text)              # remove hashtag symbol
-    text = re.sub(r'RT[\s]+','', text)        # remove retweet tag
-    text = re.sub(r'https?:\/\/\S+','', text) # remove links
-    text = re.sub(r'[^a-zA-Z\s]', '', text)   # remove punctuations
-    return text.lower()
-```
-
-### 2. Tokenization and Padding
-Text is tokenized and padded to equal lengths using Keras utilities.
-
-```python
-from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-
-tokenizer = Tokenizer(num_words=5000, oov_token="<OOV>")
-tokenizer.fit_on_texts(cleaned_texts)
-sequences = tokenizer.texts_to_sequences(cleaned_texts)
-padded = pad_sequences(sequences, maxlen=100, truncating='post')
-```
-
-### 3. LSTM Model Architecture
-A deep learning model using an Embedding layer, LSTM, and Dense layers is built and compiled.
-
-```python
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Embedding, LSTM, Dense
-
-model = Sequential([
-    Embedding(input_dim=5000, output_dim=64, input_length=100),
-    LSTM(64, dropout=0.2, recurrent_dropout=0.2),
-    Dense(1, activation='sigmoid')
-])
-
-model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
-```
-
-### 4. Training and Evaluation
-Model is trained on the preprocessed tweet data and evaluated using accuracy and loss metrics.
-
-```python
-model.fit(X_train, y_train, epochs=5, validation_data=(X_val, y_val), batch_size=64)
-```
-
-## 📦 Dependencies
-
-- Python 3.7+
-- pandas
-- numpy
-- matplotlib
-- seaborn
-- scikit-learn
-- TensorFlow / Keras
-- re (regex)
-
-Install required packages:
-
-```python
-pip install pandas numpy matplotlib seaborn scikit-learn tensorflow
-```
-
-## 📌 Usage
-
-1. Open `TwitterSentimentAnalysisLSTM.ipynb` in Jupyter Notebook.
-2. Run the notebook step-by-step.
-3. Adjust tokenizer vocab size or LSTM parameters for different performance or datasets.
-
-## 📈 Results
-
-- Includes visualizations of training/validation accuracy and loss.
-- Capable of binary sentiment classification (positive vs. negative).
-- Accuracy  : 0.9231
-- Precision : 0.9273
-- Recall    : 0.9198
-- F1 Score  : 0.9235
-
-## 📝 License
-
-This project is open for educational and non-commercial use.
-
-
+For questions, feedback, or collaboration, please reach out via GitHub Issues or Discussions.
