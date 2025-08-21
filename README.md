@@ -4,6 +4,10 @@ Welcome to ML_projects, a curated collection of machine learning and deep learni
 
 ---
 
+**Author Kaggle Profile:** [Ahmed Amr Abolfadl on Kaggle](https://www.kaggle.com/ahmedamrabolfadl)
+
+---
+
 ## Repository Structure
 
 - **Classification/**
